@@ -1,31 +1,31 @@
 import React from 'react'
 import './Login.css'
-import { Box } from '@mui/system'
+//import { Box } from '@mui/system'
 import {Container} from '@mui/system'
 
 
 const Login = () => {
   return (
     <Container>
-        <div className='header'>
-            <div className='text'>Login</div>
+        <div className='login-div'>
+
+            <div className='text'><strong>Login</strong></div>
             <div className='inputs'>
                 <div className='input'>
-                    <input type='text'placeholder='Username'/>
+                    <input type='text' className='username' placeholder='Username'/>
                 </div>
 
                 <div className='input'>
-                    <input type='password'placeholder='Password'/>
+                    <input type='password' className='password' placeholder='Password'/>
                 </div>
             </div>
-
-            <div className='ForgotPassword'><span href = "#">Forgot Password?</span></div>
-
-            <div className='submit-container'>
-                <div className='submit'>
-                    <button type='submit'>Submit</button>
-                </div>
+            
+            <div className='submit-div'>
+                <button className='submit' type='submit'>Submit</button>
             </div>
+
+            <div className='forgotpassword'><span href = "#">Forgot Password?</span></div>
+
         </div>
     </Container>
   )
