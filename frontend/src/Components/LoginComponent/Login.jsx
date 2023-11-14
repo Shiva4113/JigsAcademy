@@ -1,34 +1,81 @@
-import React from 'react'
-import './Login.css'
-//import { Box } from '@mui/system'
-import {Container} from '@mui/system'
+//imports
+import React, { useState, useCallback } from 'react';
+import './Login.css';
+import axios from 'axios';
 
+//importing essentials
+import { Container } from '@mui/system';
+import { Link } from 'react-router-dom';
 
 const Login = () => {
-  return (
-    <Container>
-        <div className='login-div'>
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
 
-            <div className='text'><strong>Login</strong></div>
-            <div className='inputs'>
-                <div className='input'>
-                    <input type='text' className='username' placeholder='Username'/>
+    const handleLogin = useCallback(async (e) => {
+        e.preventDefault();
+        try {
+            const res = await axios.post('http://localhost:3000/api/login', {
+                username: username,
+                password: password,
+            });
+            if (res.data) {
+                console.log(res.data);
+                localStorage.setItem('user', JSON.stringify(res.data));
+            }
+        } catch (err) {
+            console.log(err);
+        }
+    }, [username, password]);
+
+    return (
+        <Container>
+            <div className='login-div'>
+                <div className='text'>
+                    <strong>Login</strong>
+                </div>
+                <div className='inputs'>
+                    <div className='input'>
+                        <input
+                            type='text'
+                            id='username'
+                            className='username'
+                            placeholder='Username'
+                            onChange={(e) => {
+                                setUsername(e.target.value);
+                            }}
+                            required
+                        />
+                    </div>
+
+                    <div className='input'>
+                        <input
+                            type='password'
+                            id='password'
+                            className='password'
+                            placeholder='Password'
+                            onChange={(e) => {
+                                setPassword(e.target.value);
+                            }}
+                            required
+                        />
+                    </div>
                 </div>
 
-                <div className='input'>
-                    <input type='password' className='password' placeholder='Password'/>
+                <div className='submit-div'>
+                    <form onSubmit={handleLogin}>
+                        <button className='submit' type='submit'>
+                            Submit
+                        </button>
+                    </form>
                 </div>
+
+                <div className='forgotpassword'>
+                    <Link to='#'>Forgot Password?</Link>
+                </div>
+                {/*Bound to change */}
             </div>
-            
-            <div className='submit-div'>
-                <button className='submit' type='submit'>Submit</button>
-            </div>
+        </Container>
+    );
+};
 
-            <div className='forgotpassword'><a href = "#">Forgot Password?</a></div>
-
-        </div>
-    </Container>
-  )
-}
-
-export default Login
+export default Login;

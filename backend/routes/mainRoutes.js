@@ -7,6 +7,11 @@ router.get('/',(req,res)=>{
 
 //dashboard - assignments
 
-router.get('/')
+router.get('/dashboard',(req,res)=>{
+    res.json({mssg:"dashboard"})
+})
 
+router.post('/login',(req,res)=>{
+    res.json()
+})
 module.exports = router    

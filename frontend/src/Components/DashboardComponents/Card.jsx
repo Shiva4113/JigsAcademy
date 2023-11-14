@@ -1,14 +1,18 @@
 import React from 'react';
+import InnerCard from './InnerCard';
+import { Link } from 'react-router-dom';
 
-const Card = ({ title, children, icon }) => {
+const Card = ({ title, description, icon, to }) => {
   return (
-    <div style={cardStyle}>
-      <div style={contentStyle}>
-        <h2 style={titleStyle}>{title}</h2>
-        {icon}
-        <div>{children}</div>
+    <Link to = {to} style = {linkStyles}>
+      <div style={cardStyle}>
+        <div style={contentStyle}>
+          <h2 style={titleStyle}>{title}</h2>
+          {icon}
+          <p>{description}</p>
+        </div>
       </div>
-    </div>
+    </Link>
   );
 };
 
@@ -17,10 +21,8 @@ const cardStyle = {
   overflow: 'hidden',
   boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
   marginBottom: '20px',
-  marginTop: '20px',
   backgroundColor: 'rgba(241, 195, 160, 0.6)',
-  width: '50%', 
-  maxheight: '20%',
+  width: '300px', 
 };
 
 const contentStyle = {
@@ -33,5 +35,8 @@ const titleStyle = {
   marginBottom: '10px',
 };
 
-
+const linkStyles ={
+  textDecoration: "none",
+  color:"inherit"
+}
 export default Card;
