@@ -1,8 +1,10 @@
 import Card from './Card';
+import InnerCard from './InnerCard';
 import AssignmentIcon from '../Assets/AssignmentIcon';
 import CoursesIcon from '../Assets/CoursesIcon';
 import AttendanceIcon from '../Assets/AttendanceIcon';
 import ResultsIcon from '../Assets/ResultsIcon';
+import './Dashboard.css';
 
 const Dashboard = () => {
   return (
@@ -12,20 +14,29 @@ const Dashboard = () => {
       <Card title="Attendance" icon={<AttendanceIcon />} />
       <Card title="Results" icon={<ResultsIcon />} />
 
-      <Card title="Announcements" description="Sometimes we make the process more complicated than we need to. We will never make a journey of a thousand miles by fretting about how long it will take or how hard it will be. We make the journey by taking each day step by step and then repeating it again and again until we reach our destination.
-
-Joseph B. Wirthlin"/>
+      <Card title="Announcements" className="announcements-container" style={announcementsContainerStyle}>
+        <InnerCard/>
+        <InnerCard/>
+        <InnerCard/>
+        <InnerCard/>
+      </Card>
     </div>
   );
 };
 
+
 const dashboardStyle = {
   display: 'flex',
-  flexWrap: 'wrap',
-  justifyContent: 'space-between', 
-  padding: '20px',
-  maxWidth: '800px', 
+  justifyContent: 'space-evenly',
+  maxWidth: '1000px',
   margin: 'auto',
+  flexWrap: 'wrap',
+  
+};
+
+const announcementsContainerStyle = {
+  height: '400px',
+  overflowY: 'scroll',
 };
 
 export default Dashboard;

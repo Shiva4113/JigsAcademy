@@ -1,0 +1,4 @@
+.announcements-container {
+    width: 100px;
+    overflow-y: auto;; /* Center the announcements horizontally */
+  }
