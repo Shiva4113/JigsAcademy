@@ -10,10 +10,11 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 //importing all pages
 import Login from './Components/LoginComponent/Login'
 import Dashboard from './Components/DashboardComponents/Dashboard'
-
+import Home from './Components/HomePageComponent/Home'
 
 const routes = [<Route path="/login" element={<Login />} />,
-                <Route path = "/dashboard" element = {<Dashboard />} />]
+                <Route path = "/dashboard" element = {<Dashboard />} />,
+                <Route path = "/" element = {<Home />} />]
 function App() {
   return (
     <div className="App">
