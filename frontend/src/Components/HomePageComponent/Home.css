@@ -94,6 +94,10 @@
 
 .break{
     position: absolute;
-    top: 46%;
+    top: 45%;
     width:85%;
+}
+
+h1{
+    -webkit-text-stroke: 0.5px white;
 }

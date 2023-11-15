@@ -11,7 +11,7 @@ const Home = () => {
             <button className='login_button'>Proceed to sign in</button>
           </div>
       </div>
-      <div className='break'><h2>OR</h2></div>
+      <div className='break'><h1>OR</h1></div>
       <div className='sign-div'>
         <div className='text'><strong>New to the website?</strong></div>
         <div className='signup'>
