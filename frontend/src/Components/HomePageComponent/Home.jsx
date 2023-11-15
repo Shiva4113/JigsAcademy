@@ -5,23 +5,20 @@ const Home = () => {
   return (
     <div className='container'>
 
-      <div className='login-div'>
+      <div className='log-div'>
           <div className='text'><strong>Already have an account?</strong></div>
           <div className='login'>
-            <button className='login_button' type='submit'>Proceed to sign in</button>
+            <button className='login_button'>Proceed to sign in</button>
           </div>
       </div>
       <div className='break'><h2>OR</h2></div>
-      <div className='signup-div'>
+      <div className='sign-div'>
         <div className='text'><strong>New to the website?</strong></div>
         <div className='signup'>
           <button className='signup_button' type='submit'>Proceed to sign up</button>
         </div>
       </div>
     </div>
-
-    
-
   )
 }
 

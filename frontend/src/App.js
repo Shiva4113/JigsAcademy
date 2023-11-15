@@ -11,10 +11,13 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Login from './Components/LoginComponent/Login'
 import Dashboard from './Components/DashboardComponents/Dashboard'
 import Home from './Components/HomePageComponent/Home'
+import Signup from './Components/SignupComponent/Signup'
 
 const routes = [<Route path="/login" element={<Login />} />,
                 <Route path = "/dashboard" element = {<Dashboard />} />,
-                <Route path = "/" element = {<Home />} />]
+                <Route path = "/" element = {<Home />} />,
+                <Route path = "/signup" element = {<Signup />} />]
+                
 function App() {
   return (
     <div className="App">
