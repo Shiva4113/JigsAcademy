@@ -1,37 +1,46 @@
-//imports
 import React, { useState, useCallback } from 'react';
-import './Login.css';
+import './Signup.css'; // You can create a separate CSS file for styling
 import axios from 'axios';
-
-//importing essentials
 import { Container } from '@mui/system';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
-const Login = () => {
+
+
+const Signup = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
 
-    const handleLogin = useCallback(async (e) => {
+    const handleSignup = useCallback(async (e) => {
         e.preventDefault();
         try {
-            const res = await axios.post('http://localhost:2000/api/login', {
+            // Add validation for password match here
+            if (password !== confirmPassword) {
+                console.log("Passwords do not match");
+                return;
+            }
+
+            const res = await axios.post('http://localhost:2000/api/signup', {
                 username: username,
                 password: password,
             });
+
             if (res.data) {
                 console.log(res.data);
                 localStorage.setItem('user', JSON.stringify(res.data));
+                // Redirect or perform other actions upon successful signup
             }
         } catch (err) {
             console.log(err);
         }
-    }, [username, password]);
+    }, [username, password, confirmPassword]);
 
     return (
         <Container>
-            <div className='login-div'>
+            <div className='signup-div'>
                 <div className='text'>
-                    <strong>Login</strong>
+                    <strong>Sign Up</strong>
                 </div>
                 <div className='inputs'>
                     <div className='input'>
@@ -40,9 +49,7 @@ const Login = () => {
                             id='username'
                             className='username'
                             placeholder='Username'
-                            onChange={(e) => {
-                                setUsername(e.target.value);
-                            }}
+                            onChange={(e) => setUsername(e.target.value)}
                             required
                         />
                     </div>
@@ -53,30 +60,38 @@ const Login = () => {
                             id='password'
                             className='password'
                             placeholder='Password'
-                            onChange={(e) => {
-                                setPassword(e.target.value);
-                            }}
+                            onChange={(e) => setPassword(e.target.value)}
+                            required
+                        />
+                    </div>
+
+                    <div className='input'>
+                        <input
+                            type='password'
+                            id='confirmPassword'
+                            className='confirm-password'
+                            placeholder='Confirm Password'
+                            onChange={(e) => setConfirmPassword(e.target.value)}
                             required
                         />
                     </div>
                 </div>
 
                 <div className='submit-div'>
-                    <form onSubmit={handleLogin}>
+                    <form onSubmit={handleSignup}>
                         <button className='submit' type='submit'>
-                            Submit
+                            Sign Up
                         </button>
                     </form>
                 </div>
 
-                <div className='forgotpassword'>
-                    <Link to='#'>Forgot Password?</Link>
+                <div className='login-link'>
+                    {/* <a className='link' href='/login'>Already have an account?</a> */}
+                    <Link className='link' to = "/login">Already have an account?</Link>
                 </div>
-                    <Link to='/Signup' className='noAcc'>Don't have an account yet?</Link>
-                {/*Bound to change */}
             </div>
         </Container>
     );
 };
 
-export default Login;
+export default Signup;

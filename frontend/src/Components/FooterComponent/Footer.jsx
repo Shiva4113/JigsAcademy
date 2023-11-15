@@ -1,11 +1,13 @@
 const Footer = () => {
     return (
       <footer style={footerStyle}>
-        <div style={leftText}>
-          <p>Copyright&copy; JigsAcademy Bengaluru India</p>
-        </div>
-        <div style={rightText}>
-          <p>About Contact us</p>
+        <div style={contentbox}>
+          <div style={leftText}>
+            <p>Copyright&copy; JigsAcademy Bengaluru India</p>
+          </div>
+          <div style={rightText}>
+            <p>About Contact us </p>
+          </div>
         </div>
       </footer>
     );
@@ -22,15 +24,20 @@ const Footer = () => {
     left: '0',
     bottom: '0',
     width: '100%',
-    marginTop: '2rem', // Adjust as needed
+    marginTop: '1rem', // Adjust as needed
   };
   
+  const contentbox = {
+    display: 'flex',
+    justifyContent: 'space-between',
+    width: '98%',
+  };
   const leftText = {
-    alignSelf: 'flex-end',
+    alignSelf: 'flex-start',
   };
   
   const rightText = {
-    alignSelf: 'flex-start',  
+    alignSelf: 'flex-end',  
   };
   
   export default Footer;

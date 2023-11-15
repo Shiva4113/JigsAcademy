@@ -19,7 +19,7 @@ router.post('/login', async (req,res)=>{
     try{
         // let studentId = await 
         console.log("studentModel",Student)
-        let getStudent=await Student.findById('65548ca6e8460475ca897386')
+        let getStudent=await Student.findById('6554991cf87962c93aa2fa7d')
         console.log(getStudent)
         // if(!getStudent){
         //     return res.status(401).send("Invalid username or password")

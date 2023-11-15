@@ -6,9 +6,9 @@
 
 }
 
-.login-div{
+.log-div{
     position: absolute;
-    top: 35%;
+    top: 22%;
     /*size of div*/
     width:40%;
     height:15%;
@@ -30,9 +30,9 @@
     padding-bottom: 5px;
 }
 
-.signup-div {
+.sign-div {
     position:absolute;
-    top: 55%;
+    top: 57%;
     /*size of div*/
     width:40%;
     height:15%;
@@ -94,6 +94,10 @@
 
 .break{
     position: absolute;
-    top: 46%;
+    top: 45%;
     width:85%;
+}
+
+h1{
+    -webkit-text-stroke: 0.5px white;
 }
