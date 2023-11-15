@@ -14,7 +14,7 @@ const Login = () => {
     const handleLogin = useCallback(async (e) => {
         e.preventDefault();
         try {
-            const res = await axios.post('http://localhost:3000/api/login', {
+            const res = await axios.post('http://localhost:2000/api/login', {
                 username: username,
                 password: password,
             });
