@@ -2,7 +2,10 @@ import React, { useState, useCallback } from 'react';
 import './Signup.css'; // You can create a separate CSS file for styling
 import axios from 'axios';
 import { Container } from '@mui/system';
-//import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+
+
 
 const Signup = () => {
     const [email, setEmail] = useState('');
@@ -22,9 +25,7 @@ const Signup = () => {
                 return;
             }
 
-            const res = await axios.post('http://localhost:3000/api/signup', {
-                Email:email,
-                Name:name,
+            const res = await axios.post('http://localhost:2000/api/signup', {
                 username: username,
                 password: password,
             });
@@ -112,7 +113,8 @@ const Signup = () => {
                 </div>
 
                 <div className='login-link'>
-                    <a className='link' href='/login'>Already have an account?</a>
+                    {/* <a className='link' href='/login'>Already have an account?</a> */}
+                    <Link className='link' to = "/login">Already have an account?</Link>
                 </div>
             </div>
         </Container>

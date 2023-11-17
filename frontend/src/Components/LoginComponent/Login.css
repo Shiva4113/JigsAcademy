@@ -104,6 +104,17 @@ input::placeholder{
 
 .forgotpassword a:hover{
     color: rgb(255, 255, 255);
+    text-decoration: underline;
+    transition: 0.3s;
+}
+
+.noAcc{
+    color: rgb(195, 193, 193);
     text-decoration: none;
+}
+
+.noAcc:hover{
+    color: rgb(255, 255, 255);
+    text-decoration: underline;
     transition: 0.3s;
 }

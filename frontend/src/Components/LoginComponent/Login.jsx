@@ -14,7 +14,7 @@ const Login = () => {
     const handleLogin = useCallback(async (e) => {
         e.preventDefault();
         try {
-            const res = await axios.post('http://localhost:3000/api/login', {
+            const res = await axios.post('http://localhost:2000/api/login', {
                 username: username,
                 password: password,
             });
@@ -72,6 +72,7 @@ const Login = () => {
                 <div className='forgotpassword'>
                     <Link to='#'>Forgot Password?</Link>
                 </div>
+                    <Link to='/Signup' className='noAcc'>Don't have an account yet?</Link>
                 {/*Bound to change */}
             </div>
         </Container>

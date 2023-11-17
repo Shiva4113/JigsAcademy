@@ -17,7 +17,7 @@ const connectToDb = async() => {
         console.log("Connected to DB");
     }
     catch (error) {
-        console.log(error);
+        console.log("Error connecting to DB:",error);
     }
 };
 connectToDb();
@@ -33,7 +33,7 @@ app.use(cors({
 app.use(bodyParser.json())
 app.use('/api',mainRouter)
 
-//listen for requests
+// listen for requests
 app.listen(PORT,()=>{
     console.log("listening on port:",PORT)
 })
