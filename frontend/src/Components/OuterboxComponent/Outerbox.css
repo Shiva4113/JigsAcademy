@@ -1,0 +1,9 @@
+.Outerbox{
+    width: 80%;
+    height: 60%;
+    align-self: center;
+    border-radius: 5px;
+    align-content: center;
+    display: flex;
+    background-color: rgba(241, 195, 160, 0.6);
+}

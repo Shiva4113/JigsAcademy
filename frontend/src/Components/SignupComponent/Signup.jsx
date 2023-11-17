@@ -2,13 +2,17 @@ import React, { useState, useCallback } from 'react';
 import './Signup.css'; // You can create a separate CSS file for styling
 import axios from 'axios';
 import { Container } from '@mui/system';
-import { Link } from 'react-router-dom';
+//import { Link } from 'react-router-dom';
 
 const Signup = () => {
+    const [email, setEmail] = useState('');
+    const [name, setName] = useState('');
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
 
+    
+    
     const handleSignup = useCallback(async (e) => {
         e.preventDefault();
         try {
@@ -19,6 +23,8 @@ const Signup = () => {
             }
 
             const res = await axios.post('http://localhost:3000/api/signup', {
+                Email:email,
+                Name:name,
                 username: username,
                 password: password,
             });
@@ -31,7 +37,7 @@ const Signup = () => {
         } catch (err) {
             console.log(err);
         }
-    }, [username, password, confirmPassword]);
+    }, [email,name,username, password, confirmPassword]);
 
     return (
         <Container>
@@ -40,6 +46,29 @@ const Signup = () => {
                     <strong>Sign Up</strong>
                 </div>
                 <div className='inputs'>
+
+                    <div className='input'>
+                        <input
+                            type='text'
+                            id='email'
+                            className='email'
+                            placeholder='Email-ID'
+                            onChange={(e) => setEmail(e.target.value)}
+                            required
+                        />
+                    </div>
+
+                    <div className='input'>
+                        <input
+                            type='text'
+                            id='name'
+                            className='name'
+                            placeholder='Name'
+                            onChange={(e) => setName(e.target.value)}
+                            required
+                        />
+                    </div>
+
                     <div className='input'>
                         <input
                             type='text'

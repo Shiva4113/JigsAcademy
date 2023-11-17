@@ -1,5 +1,4 @@
 import React from 'react';
-import InnerCard from './InnerCard';
 import { Link } from 'react-router-dom';
 
 const Card = ({ title, description, icon, to }) => {
