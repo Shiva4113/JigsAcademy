@@ -6,8 +6,10 @@ import axios from 'axios';
 //importing essentials
 import { Container } from '@mui/system';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
+    const navigate = useNavigate()
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
@@ -21,6 +23,7 @@ const Login = () => {
             if (res.data) {
                 console.log(res.data);
                 localStorage.setItem('user', JSON.stringify(res.data));
+                navigate('/dashboard')
             }
         } catch (err) {
             console.log(err);
