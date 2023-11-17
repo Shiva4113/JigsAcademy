@@ -26,11 +26,22 @@ router.post("/login", async (req, res) => {
   });
   
 router.post("/signup",async(req,res)=>{
+  const existingUser = await Student.findOne({
+    $or: [
+        { username: req.body.username },
+        { mail: req.body.mail }
+    ]
+});
+
+  if (existingUser) {
+    return res.status(400).send("Username or email already exists");
+  }
   // req.body.password = await bcrypt.hash(req.body.password,10)
   let student = new Student({
       username: req.body.username,
       password: req.body.password,
-      mail: req.body.mail
+      mail: req.body.mail,
+      name: req.body.name
   })
   try{
     let savedStudent = await student.save()

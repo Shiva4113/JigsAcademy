@@ -3,6 +3,7 @@ import "./Outerbox.css"
 import { Container } from '@mui/system';
 
 const Outerbox = ({title}) => {
+    return(
     <Container>
         <div className='Outerbox'>
             <h2>{title}</h2>
@@ -12,7 +13,8 @@ const Outerbox = ({title}) => {
             </div>
         </div>
     </Container>
-    
-} 
+    )
+}
+ 
 
 export default Outerbox

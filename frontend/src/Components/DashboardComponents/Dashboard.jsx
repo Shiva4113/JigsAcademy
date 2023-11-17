@@ -7,10 +7,10 @@ import ResultsIcon from '../Assets/ResultsIcon';
 const Dashboard = () => {
   return (
     <div style={dashboardStyle}>
-      <Card title="Assignments" icon={<AssignmentIcon />} to = {"/"}/>
-      <Card title="Courses" icon={<CoursesIcon />} to={"/"}/>
-      <Card title="Attendance" icon={<AttendanceIcon />} to={"/"}/>
-      <Card title="Results" icon={<ResultsIcon />} to={"/"}/>
+      <Card title="Assignments" icon={<AssignmentIcon />} to = {"./Assignments"}/>
+      <Card title="Courses" icon={<CoursesIcon />} to={"./Courses"}/>
+      <Card title="Attendance" icon={<AttendanceIcon />} to={"./Attendance"}/>
+      <Card title="Results" icon={<ResultsIcon />} to={"./Results"}/>
     </div>
   );
 };
