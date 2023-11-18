@@ -10,4 +10,18 @@
     display: flex;
     align-content: center;
     background-color: rgba(241, 195, 160, 0.6);
+    overflow: hidden;
+}
+
+.hr {
+    width: 90%;
+    size: 5px;
+    background-color: #000;
+    
+}
+
+.contentbox{
+    width: 98%;
+    height: 80%;
+    display:flex;
 }
