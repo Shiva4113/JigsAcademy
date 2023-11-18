@@ -6,7 +6,7 @@ const Outerbox = ({title}) => {
     <Container>
         <div className='Outerbox'>
             <h2>{title}</h2>
-            <br></br>
+            <hr></hr>
             <div className='contentbox'>
             
             </div>
