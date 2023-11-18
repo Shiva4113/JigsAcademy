@@ -13,33 +13,36 @@ const Signup = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
-
+    const navigate = useNavigate()
     
     
     const handleSignup = useCallback(async (e) => {
         e.preventDefault();
+    
         try {
             // Add validation for password match here
             if (password !== confirmPassword) {
                 console.log("Passwords do not match");
                 return;
             }
-
+    
             const res = await axios.post('http://localhost:2000/api/signup', {
                 username: username,
                 password: password,
+                mail: email,
+                name: name,
             });
-
+    
             if (res.data) {
                 console.log(res.data);
                 localStorage.setItem('user', JSON.stringify(res.data));
-                // Redirect or perform other actions upon successful signup
+                navigate('/login')
             }
         } catch (err) {
             console.log(err);
         }
-    }, [email,name,username, password, confirmPassword]);
-
+    }, [email, name, username, password, confirmPassword]);
+    
     return (
         <Container>
             <div className='signup-div'>

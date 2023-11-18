@@ -12,13 +12,21 @@ import Login from './Components/LoginComponent/Login'
 import Dashboard from './Components/DashboardComponents/Dashboard'
 import Home from './Components/HomePageComponent/Home'
 import Signup from './Components/SignupComponent/Signup'
-import Outerbox from './Components/OuterboxComponent/Outerbox';
+import Assignments from './Components/DashboardComponents/Assignments';
+import Courses from './Components/DashboardComponents/Courses';
+import Results from './Components/DashboardComponents/Results';
+import Attendance from './Components/DashboardComponents/Attendance';
+
 
 const routes = [<Route path="/login" element={<Login />} />,
                 <Route path = "/dashboard" element = {<Dashboard />} />,
                 <Route path = "/" element = {<Home />} />,
                 <Route path = "/signup" element = {<Signup />} />,
-                <Route path='/assignments' element = {<Outerbox title={"Assignments"}/>}/>]
+                <Route path = "/dashboard/assignments" element = {<Assignments/>} />,
+                <Route path = "/dashboard/courses" element = {<Courses/>} />,
+                <Route path = "/dashboard/attendance" element = {<Results/>} />,
+                <Route path = "/dashboard/results" element = {<Attendance/>} />,
+                ]
                 
 function App() {
   return (

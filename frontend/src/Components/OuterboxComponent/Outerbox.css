@@ -1,9 +1,13 @@
-.Outerbox{
+.Outerbox {
     width: 80%;
     height: 60%;
-    align-self: center;
+    margin: auto; /* Add this to center the element horizontally */
+    position: absolute;
+    top: 50%; /* Set top to 50% to center vertically */
+    left: 50%; /* Set left to 50% to center horizontally */
+    transform: translate(-50%, -50%); /* Use transform to adjust for both horizontal and vertical centering */
     border-radius: 5px;
-    align-content: center;
     display: flex;
+    align-content: center;
     background-color: rgba(241, 195, 160, 0.6);
 }
