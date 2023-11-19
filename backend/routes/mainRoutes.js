@@ -5,26 +5,26 @@ const bcrypt = require("bcrypt")
 const Student = require("../models/studentSchema")
 
 router.post("/login", async (req, res) => {
-    try {
-      // console.log(req.body)
-      let getStudent = await Student.findOne({ username: req.body.username});
-      // console.log(getStudent.username);
-      if (!getStudent) {
-        return res.status(401).send("Invalid username or password");
-      }
-      // const result = await bcrypt.compare(req.body.password, getStudent.password);
-      // console.log(result)
-      if (getStudent.password == req.body.password) {
-        const token = jwt.sign({ userId: getStudent._id }, "primary-key");
-        res.json({ token, userId: getStudent._id, username: getStudent.username });
-      } else {
-        res.status(400).json({ error: "Invalid username or password" });
-      }
-    } catch (error) {
-      res.status(400).json({ error });
+  try {
+    let getStudent = await Student.findOne({ username: req.body.username });
+
+    if (!getStudent) {
+      return res.status(401).send("Invalid username or password");
     }
-  });
-  
+
+    const result = await bcrypt.compare(req.body.password, getStudent.password);
+
+    if (result) {
+      const token = jwt.sign({ userId: getStudent._id }, "primary-key");
+      res.json({ token, userId: getStudent._id, username: getStudent.username });
+    } else {
+      res.status(400).json({ error: "Invalid username or password" });
+    }
+  } catch (error) {
+    res.status(400).json({ error });
+  }
+});
+
 router.post("/signup",async(req,res)=>{
   const existingUser = await Student.findOne({
     $or: [
@@ -36,7 +36,7 @@ router.post("/signup",async(req,res)=>{
   if (existingUser) {
     return res.status(400).send("Username or email already exists");
   }
-  // req.body.password = await bcrypt.hash(req.body.password,10)
+  req.body.password = await bcrypt.hash(req.body.password,10)
   let student = new Student({
       username: req.body.username,
       password: req.body.password,

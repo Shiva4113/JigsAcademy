@@ -1,16 +1,21 @@
 import logo from '../Assets/booksIcon.png';
 
+import ProfileIcon from '../Assets/ProfileIcon';
 const Header = () => {
+  let auth = !!localStorage.getItem('user')
   return (
     <header style={headerStyle}>
       <div style={logoStyle}>
-        <a href="#"><img src={logo} alt="Logo" style={{ height: '64px', width: '64px' }} /></a>
+        <a href="/dashboard"><img src={logo} alt="Logo" style={{ height: '64px', width: '64px' }} /></a>
       </div>
       <div style={textContainerStyle}>
         <h1 style={{ margin: '0' }}>Jigs Academy</h1>
       </div>
       <nav>
       {/* links? */}
+      <div style={pfpstyle}>
+        {auth ? <ProfileIcon/> : <></>}
+      </div>
       </nav>
     </header>
   );
@@ -32,6 +37,10 @@ const logoStyle = {
 const textContainerStyle = {
   flex: 1,
   textAlign: 'center', 
+};
+
+const pfpstyle = {
+  marginLeft: '1rem',
 };
 
 export default Header;
