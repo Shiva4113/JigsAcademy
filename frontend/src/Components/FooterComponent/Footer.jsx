@@ -9,13 +9,21 @@ const Footer = () => {
         </div>
         <div style={rightText}>
           <p>
-            <Link to="/about">About</Link> | <Link to="/contact">Contact us</Link>
+            <Link style={linkstyle} to="/about">About</Link> | <Link style={linkstyle} to="/contact">Contact us</Link>
           </p>
         </div>
       </div>
     </footer>
   );
 };
+
+const linkstyle = {
+  color: '#ffffff',
+  textDecoration: 'underline',
+  
+};
+
+
 
 const footerStyle = {
   background: '#896A53',

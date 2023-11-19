@@ -1,6 +1,7 @@
 import logo from '../Assets/booksIcon.png';
+import React from 'react';
+import ProfileIcon from './profile.jsx'
 
-import ProfileIcon from '../Assets/ProfileIcon';
 const Header = () => {
   let auth = !!localStorage.getItem('user')
   return (

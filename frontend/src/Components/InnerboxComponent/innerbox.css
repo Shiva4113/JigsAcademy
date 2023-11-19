@@ -19,3 +19,8 @@
     align-items: center;
     border-radius: 5px;
 }
+
+::-webkit-scrollbar {
+    width: 0px;
+    background-color:rgba(93, 56, 56, 0) ; 
+}
