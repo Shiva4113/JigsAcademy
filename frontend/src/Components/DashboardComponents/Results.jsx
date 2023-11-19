@@ -1,8 +1,8 @@
-import Outerbox from "../OuterboxComponent/Outerbox";
+import Outerbox from "../OuterboxComponent/ResultsOuterbox";
 
 const Results = () => {
     return ( 
-        <Outerbox textcontent1="UNIT - 1" textcontent2 = "UNIT - 2"  textcontent3= "UNIT - 3" textcontent4= "UNIT - 4"/>
+        <Outerbox results1="ISA - 1" results2 = "ISA - 2"  results3= "ESA" results4= "OVERALL"/>
      );
 }
  

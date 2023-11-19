@@ -1,8 +1,8 @@
-import Outerbox from "../OuterboxComponent/Outerbox";
+import Outerbox from "../OuterboxComponent/AssignmentsOuterbox";
 
 const Assignments = () => {
     return (  
-        <Outerbox textcontent1="UNIT - 1" textcontent2 = "UNIT - 2"  textcontent3= "UNIT - 3" textcontent4= "UNIT - 4"/>
+        <Outerbox assignment1="Assignment - 1" assignment2 = "Assignment - 2"  assignment3= "Assignment - 3" assignment4= "Assignment - 4"/>
     );
 }
  
