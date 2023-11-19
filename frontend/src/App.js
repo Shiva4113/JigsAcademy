@@ -19,10 +19,10 @@ import Attendance from './Components/DashboardComponents/Attendance';
 import PrivateRoutes from './utils/PrivateRoutes';
 import PublicRoutes from './utils/PublicRoutes'
 
-const routes = [//<Route path="/login" element={<Login />} />,
+const routes = [// <Route path="/login" element={<Login />} />,
                 // <Route path = "/dashboard" element = {<Dashboard />} />,
-                //<Route path = "/" element = {<Home />} />,
-                //<Route path = "/signup" element = {<Signup />} />,
+                // <Route path = "/" element = {<Home />} />,
+                // <Route path = "/signup" element = {<Signup />} />,
                 // <Route path = "/dashboard/assignments" element = {<Assignments/>} />,
                 // <Route path = "/dashboard/courses" element = {<Courses/>} />,
                 // <Route path = "/dashboard/attendance" element = {<Results/>} />,

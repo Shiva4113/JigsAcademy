@@ -3,7 +3,7 @@ import React from 'react';
 import ProfileIcon from './profile.jsx'
 
 const Header = () => {
-  let auth = !!localStorage.getItem('user')
+let auth = !!localStorage.getItem('user')
   return (
     <header style={headerStyle}>
       <div style={logoStyle}>

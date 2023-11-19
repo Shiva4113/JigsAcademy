@@ -31,26 +31,47 @@ const ProfileIcon = () => {
       />
       {dropdownVisible && (
         <div style={dropdownStyle}>
-          <p>Name: {name}</p>
-          <p>Username: {username}</p>
-          <p>Mail: {mail}</p>
-          <p>Class: {section}</p>
-          <button onClick={handleLogout}>Logout</button>
+          <img
+          src={profilepic}
+          alt="Profile"
+          style={{ height: '64px', width: '64px', cursor: 'pointer' }}/>
+          <hr style={hrstyle}/>
+          <p><strong>Name:</strong> {name}</p>
+          <p><strong>Username:</strong> {username}</p>
+          <p><strong>Mail:</strong> {mail}</p>
+          <p><strong>Class:</strong> {section}</p>
+          <hr style={hrstyle}/>
+          <button style={buttonStyle} onClick={handleLogout}><strong>Logout</strong></button>
         </div>
       )}
     </div>
   );
 };
 
+const hrstyle = {
+  height: '2px',
+  background: 'black',
+  marginstyle: '0px',
+};
 const dropdownStyle = {
   borderRadius: '5px',
   position: 'absolute',
-  top: '70px', // Adjust the positioning based on your layout
+  top: '70px', 
   right: '10px',
   background: 'rgb(241, 195, 160)',
   border: '1px solid #ccc',
   padding: '10px',
   zIndex: '1',
 };
+
+const buttonStyle = {
+  width:'100px',
+  background: '#9E695D',
+  padding: '5px',
+  cursor: 'pointer',
+  borderRadius: '5px',
+  color: 'white',
+};
+
 
 export default ProfileIcon;
