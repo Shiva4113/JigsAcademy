@@ -1,20 +1,24 @@
 // ProfileIcon.js
 import React, { useState } from 'react';
 import profilepic from '../Assets/account.png';
+
 const ProfileIcon = () => {
   const [dropdownVisible, setDropdownVisible] = useState(false);
 
-  const showDropdown = () => {
-    setDropdownVisible(true);
-  };
+  const user = JSON.parse(localStorage.getItem('user'))
 
-  const hideDropdown = () => {
-    setDropdownVisible(false);
+  const username = user.username
+  const mail = user.mail
+  const name = user.name
+  const section = user.section
+
+  const toggleDropdown = () => {
+    setDropdownVisible((prevVisible) => !prevVisible);
   };
 
   const handleLogout = () => {
+    localStorage.clear()
     window.location.href = '/login';
-    hideDropdown();
   };
 
   return (
@@ -23,14 +27,14 @@ const ProfileIcon = () => {
         src={profilepic}
         alt="Profile"
         style={{ height: '40px', width: '40px', cursor: 'pointer' }}
-        onClick={showDropdown}
+        onClick={toggleDropdown}
       />
       {dropdownVisible && (
-        <div style={dropdownStyle} onBlur={hideDropdown}>
-          <p>Name: John Doe</p>
-          <p>Class: 10</p>
-          <p>Section: A</p>
-          <button onClick={hideDropdown}>Close</button>
+        <div style={dropdownStyle}>
+          <p>Name: {name}</p>
+          <p>Username: {username}</p>
+          <p>Mail: {mail}</p>
+          <p>Class: {section}</p>
           <button onClick={handleLogout}>Logout</button>
         </div>
       )}

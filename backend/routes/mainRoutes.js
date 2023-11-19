@@ -16,7 +16,7 @@ router.post("/login", async (req, res) => {
 
     if (result) {
       const token = jwt.sign({ userId: getStudent._id }, "primary-key");
-      res.json({ token, userId: getStudent._id, username: getStudent.username });
+      res.json({ token, userId: getStudent._id, username: getStudent.username, mail: getStudent.mail, name: getStudent.name, section: getStudent.section });
     } else {
       res.status(400).json({ error: "Invalid username or password" });
     }
@@ -41,12 +41,13 @@ router.post("/signup",async(req,res)=>{
       username: req.body.username,
       password: req.body.password,
       mail: req.body.mail,
-      name: req.body.name
+      name: req.body.name,
+      section:req.body.section
   })
   try{
     let savedStudent = await student.save()
     const token = jwt.sign({userId: savedStudent._id},"primary-key")
-    res.status(200).send({token,userId:savedStudent._id,username:savedStudent.username,mail:savedStudent.mail})
+    res.status(200).send({token,userId:savedStudent._id,username:savedStudent.username,mail:savedStudent.mail,name:savedStudent.name,section:savedStudent.section})
   }
   catch(err){
     return res.status(401).send("Invalid username or password")

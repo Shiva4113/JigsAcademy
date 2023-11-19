@@ -12,9 +12,9 @@ let studentSchema = new Schema({
     type: String,
     required: true,
   },
-  class: {
+  section: {
     type: String,
-    required: false,
+    required: true,
   },
 });
 
