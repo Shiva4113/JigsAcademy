@@ -5,44 +5,48 @@ import { Container } from '@mui/system';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
-
-
 const Signup = () => {
     const [email, setEmail] = useState('');
     const [name, setName] = useState('');
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
-    const navigate = useNavigate()
-    
-    
+    const [section, setSection] = useState('');
+    const navigate = useNavigate();
+
     const handleSignup = useCallback(async (e) => {
         e.preventDefault();
-    
+
         try {
             // Add validation for password match here
             if (password !== confirmPassword) {
                 console.log("Passwords do not match");
                 return;
             }
-    
+
+            // Set the section state inside the callback
+            const alphabets = 'ABCDEFG';
+            const randomIndex = Math.floor(Math.random() * alphabets.length);
+            setSection(alphabets[randomIndex]);
+
             const res = await axios.post('http://localhost:2000/api/signup', {
                 username: username,
                 password: password,
                 mail: email,
                 name: name,
+                section: section
             });
-    
+
             if (res.data) {
                 console.log(res.data);
                 localStorage.setItem('user', JSON.stringify(res.data));
-                navigate('/login')
+                navigate('/login');
             }
         } catch (err) {
             console.log(err);
         }
-    }, [email, name, username, password, confirmPassword]);
-    
+    }, [email, name, username, password, confirmPassword, section, navigate]);
+
     return (
         <Container>
             <div className='signup-div'>
@@ -50,7 +54,6 @@ const Signup = () => {
                     <strong>Sign Up</strong>
                 </div>
                 <div className='inputs'>
-
                     <div className='input'>
                         <input
                             type='text'
@@ -61,7 +64,6 @@ const Signup = () => {
                             required
                         />
                     </div>
-
                     <div className='input'>
                         <input
                             type='text'
@@ -72,7 +74,6 @@ const Signup = () => {
                             required
                         />
                     </div>
-
                     <div className='input'>
                         <input
                             type='text'
@@ -83,7 +84,6 @@ const Signup = () => {
                             required
                         />
                     </div>
-
                     <div className='input'>
                         <input
                             type='password'
@@ -94,7 +94,6 @@ const Signup = () => {
                             required
                         />
                     </div>
-
                     <div className='input'>
                         <input
                             type='password'
@@ -105,8 +104,17 @@ const Signup = () => {
                             required
                         />
                     </div>
+                    <div className='input'>
+                        <input
+                            type = 'hidden'
+                            id='section'
+                            className='section'
+                            placeholder='Section'
+                            value={section} // Display the section value in the input
+                            readOnly
+                        />
+                    </div>
                 </div>
-
                 <div className='submit-div'>
                     <form onSubmit={handleSignup}>
                         <button className='submit' type='submit'>
@@ -114,10 +122,10 @@ const Signup = () => {
                         </button>
                     </form>
                 </div>
-
                 <div className='login-link'>
-                    {/* <a className='link' href='/login'>Already have an account?</a> */}
-                    <Link className='link' to = "/login">Already have an account?</Link>
+                    <Link className='link' to='/login'>
+                        Already have an account?
+                    </Link>
                 </div>
             </div>
         </Container>
