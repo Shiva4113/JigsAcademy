@@ -2,7 +2,7 @@
     /*position of div*/
     position: absolute;
     left: 50%;
-    top: 50%;
+    top: 51%;
     transform: translate(-50%,-50%);
     /*size of div*/
     width:fit-content;

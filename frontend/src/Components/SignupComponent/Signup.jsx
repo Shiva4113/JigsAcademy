@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from 'react';
-import './Signup.css'; // You can create a separate CSS file for styling
+import './Signup.css'; 
 import axios from 'axios';
 import { Container } from '@mui/system';
 import { Link } from 'react-router-dom';
@@ -18,7 +18,7 @@ const Signup = () => {
         e.preventDefault();
 
         try {
-            // Add validation for password match here
+            
             if (password !== confirmPassword) {
                 console.log("Passwords do not match");
                 return;
@@ -110,7 +110,7 @@ const Signup = () => {
                             id='section'
                             className='section'
                             placeholder='Section'
-                            value={section} // Display the section value in the input
+                            value={section}
                             readOnly
                         />
                     </div>
