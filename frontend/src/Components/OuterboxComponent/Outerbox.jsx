@@ -1,7 +1,7 @@
 import React from 'react'
 import "./Outerbox.css"
 import { Container } from '@mui/system';
-import Innerbox from '../InnerboxComponent/innerbox';
+import Innerbox from '../InnerboxComponent/AssignmentsInnerbox'
 
 
 const Outerbox = ({title,textcontent1}) => {
@@ -9,7 +9,7 @@ const Outerbox = ({title,textcontent1}) => {
     <Container>
         <div className='Outerbox'>
             <h2>{title}</h2>
-            <div className='contentbox'>
+            <div className='Acontentbox'>
                 <Innerbox title="Problem Statement:" content1={textcontent1}/>
             </div>
         </div>        

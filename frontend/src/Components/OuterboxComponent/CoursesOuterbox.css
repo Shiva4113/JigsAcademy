@@ -20,16 +20,9 @@
     
 }
 
-.contentbox{
+.Ccontentbox{
     width: 98%;
     height: 80%;
     display:flex;
     
-}
-
-.Acontentbox{
-    width: 98%;
-    height: 80%;
-    display:flex;
-    margin-top: -200px;
 }

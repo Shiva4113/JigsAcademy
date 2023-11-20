@@ -1,7 +1,7 @@
 import React from 'react'
 import "./Outerbox.css"
 import { Container } from '@mui/system';
-import Innerbox from "../InnerboxComponent/AssignmentsInnerbox"
+import Innerbox from "../InnerboxComponent/Innerbox"
 import { Link } from 'react-router-dom';
 
 const Outerbox = ({title,assignment1,assignment2,assignment3,assignment4}) => {
