@@ -18,6 +18,7 @@ import Results from './Components/DashboardComponents/Results';
 import Attendance from './Components/DashboardComponents/Attendance';
 import PrivateRoutes from './utils/PrivateRoutes';
 import PublicRoutes from './utils/PublicRoutes'
+import DSAassignment from './Components/AssignmentsComponent/DSAssignment-1';
 
 const routes = [// <Route path="/login" element={<Login />} />,
                 // <Route path = "/dashboard" element = {<Dashboard />} />,
@@ -38,6 +39,7 @@ const routes = [// <Route path="/login" element={<Login />} />,
                   <Route path = "/dashboard/courses" element = {<Courses/>} />,
                   <Route path = "/dashboard/attendance" element = {<Attendance/>} />,
                   <Route path = "/dashboard/results" element = {<Results/>} />,
+                  <Route path = "/dashboard/assingments/DSAa1" element = {<DSAassignment/>} />,
                 </Route>  
                 ]
                 

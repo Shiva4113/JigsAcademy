@@ -11,15 +11,6 @@ const Innerbox = ({title,content1,content2,content3,content4}) => {
             <div className='content'>
                 <p>{content1}</p>
             </div>
-            <div className='content'>
-                <p>{content2}</p>
-            </div>
-            <div className='content'>
-                <p>{content3}</p>
-            </div>
-            <div className='content'>
-                <p>{content4}</p>
-            </div>
         </div>
     </Container>
     )

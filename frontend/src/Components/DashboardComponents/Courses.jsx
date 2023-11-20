@@ -1,4 +1,4 @@
-import Outerbox from "../OuterboxComponent/Outerbox";
+import Outerbox from "../OuterboxComponent/CoursesOuterbox";
 
 const Courses = () => {
     return (
