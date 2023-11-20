@@ -16,6 +16,12 @@ let studentSchema = new Schema({
     type: String,
     required: true,
   },
+  file: {
+    filename: {
+      type: String,
+      default: null,
+    },
+  },
 });
 
 const Student = mongoose.model("students", studentSchema);

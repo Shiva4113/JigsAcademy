@@ -54,4 +54,40 @@ router.post("/signup",async(req,res)=>{
   }
 })
 
+const multer = require("multer");
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, "uploads/");
+  },
+  filename: function (req, file, cb) {
+    cb(null, file.originalname);
+  },
+});
+
+const upload = multer({
+  storage: storage,
+  fileFilter: (req, file, cb) => {
+
+    cb(null, true);
+  },
+});
+
+
+router.post("/upload", upload.single("file"), (req, res) => {
+  try {
+    if (req.file) {
+      console.log('File uploaded successfully:', req.file.originalname);
+
+      res.status(200).json({ filename: req.file.originalname });
+    } else {
+      console.log('No file uploaded');
+      res.status(400).send("No file uploaded");
+    }
+  } catch (error) {
+    console.error('Error uploading file:', error);
+    res.status(500).send("Internal server error");
+  }
+});
+
+
 module.exports = router;

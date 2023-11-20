@@ -39,7 +39,7 @@ const routes = [// <Route path="/login" element={<Login />} />,
                   <Route path = "/dashboard/courses" element = {<Courses/>} />,
                   <Route path = "/dashboard/attendance" element = {<Attendance/>} />,
                   <Route path = "/dashboard/results" element = {<Results/>} />,
-                  <Route path = "/dashboard/assingments/DSAa1" element = {<DSAassignment/>} />,
+                  <Route path = "/dashboard/assignments/DSAa1" element = {<DSAassignment/>} />,
                 </Route>  
                 ]
                 
