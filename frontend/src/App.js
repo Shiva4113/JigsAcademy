@@ -1,5 +1,6 @@
 import './App.css'
 import './utils/PrivateRoutes'
+
 //Header Footer imports
 // import Header from './Components/HeaderComponent/Header'
 import Footer from './Components/FooterComponent/Footer'

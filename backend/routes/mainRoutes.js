@@ -3,6 +3,7 @@ const router = express.Router();
 const jwt = require("jsonwebtoken")
 const bcrypt = require("bcrypt")
 const Student = require("../models/studentSchema")
+const multer = require("multer");
 
 router.post("/login", async (req, res) => {
   try {
@@ -54,7 +55,6 @@ router.post("/signup",async(req,res)=>{
   }
 })
 
-const multer = require("multer");
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, "uploads/");
